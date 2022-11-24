@@ -13,6 +13,7 @@ As such a mobile friendly frontend is to be developed for the TODO List enhancer
 4) free port 5000 (if not free, need to change configuration)
 5) OO Design thinking
 6) Swagger Documentation
+7) 3 Tier Client-Server Design.
 
 
 ## Assumptions
