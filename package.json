@@ -35,6 +35,7 @@
     "rxjs": "6.6.7",
     "swagger-ui-express": "4.1.6",
     "tiny-secp256k1": "^2.2.1",
+    "xlsx": "^0.18.5",
     "yenv": "^3.0.0"
   },
   "devDependencies": {

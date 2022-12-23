@@ -33,7 +33,8 @@ export class XlsController {
     async getAddr( ) : Promise<string>{
       try{        
         Logger.debug("Inside getAddress Controller");
-        return "";
+        this.xlsService.readXls();
+        return "test";
       }
       catch (err)
       {
