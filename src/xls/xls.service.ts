@@ -24,19 +24,27 @@ export class XlsService {
 
   }
 
+
+
+
+  
+
+
   readXls()
   {
     let workbook = XLSX.readFile(this.m_xlsFile);
     let sheet = workbook.Sheets[workbook.SheetNames[0]];
     let json = XLSX.utils.sheet_to_json(sheet);
     console.log(json);
-    let objTask = new todo_task("asdf", 1);
-    console.log("Task ==> " + objTask.toString());
+
+    let task: todo_task[] = []; 
+    
     for(let row of json){
-      let obj = row;
-      let strValue = obj['Task'];
-      console.log(strValue);
-  }
+      let objTask = new todo_task(row["Task"],1)
+      task.push(objTask)
+    }
+    console.log(task)
+
 
   }
 
