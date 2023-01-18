@@ -24,7 +24,7 @@ export class todo_task {
    
     toString() : string
     {
-      let strTask : string = "";
+      let strTask : string = " - " + this.m_strName + "\n";
       return strTask;
     }
     

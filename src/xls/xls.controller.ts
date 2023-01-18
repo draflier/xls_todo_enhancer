@@ -26,80 +26,21 @@ export class XlsController {
 
 
 
-    @Get('/get-address')
-    @ApiOperation({ summary: 'Get Address', description: 'Get Address' })
+    @Get('/read-xls')
+    @ApiOperation({ summary: 'Read Excel', description: 'Reads Excel from a file path' })
     @ApiResponse({ status: 403, description: 'Forbidden.' })
-    //@ApiQuery({name: 'br_num'})    
-    async getAddr( ) : Promise<string>{
-      try{        
-        Logger.debug("Inside getAddress Controller");
+    @ApiQuery({name: 'file_path'})    
+    async getAddr(@Query('file_path') strFilePath:string ) : Promise<string>{
+      try{
+        Logger.debug("Inside inside read-xls controller");
         this.xlsService.readXls();
-        return "test";
+        return this.xlsService.toText();
       }
       catch (err)
       {
         Logger.debug(err);
       }
     }
-
-    @Get('/mint-erc20')
-    @ApiOperation({ summary: 'Mint specified erc20', description: 'Mint erc20 of a certain amount' })
-    @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @ApiQuery({name: 'contract_address'})     
-    @ApiQuery({name: 'to_address'}) 
-    @ApiQuery({name: 'amount'})   
-    async minterc20(@Query('contract_address') strContractAddress : string, @Query('to_address')strToAddr : string , @Query('amount')strAmt : string ) : Promise<string>{
-      try{        
-        Logger.debug("Minting " + strContractAddress + " to => " + strToAddr);
-        
-        
-        
-        return "";
-      }
-      catch (err)
-      {
-        Logger.debug(err);
-      }
-    }
-
-
-    @Get('/transfer-erc20')
-    @ApiOperation({ summary: 'Transfer specified erc20', description: 'Transfer erc20 of a certain amount' })
-    @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @ApiQuery({name: 'contract_address'})     
-    @ApiQuery({name: 'to_address'}) 
-    @ApiQuery({name: 'amount'})   
-    async transfererc20(@Query('contract_address') strContractAddress : string, @Query('to_address')strToAddr : string , @Query('amount')strAmt : string ) : Promise<string>{
-      try{        
-        Logger.debug("Transferring " + strContractAddress + " to => " + strToAddr);
-        
-        
-        
-        return "";
-      }
-      catch (err)
-      {
-        Logger.debug(err);
-      }
-    }
-
-    @Get('/mint-whitelisted-NFT')
-    @ApiOperation({ summary: 'Mint Whitelisted NFT', description: 'For those whom are whitelisted, they are able to mint NFT' })
-    @ApiResponse({ status: 403, description: 'Forbidden.' })
-    @ApiQuery({name: 'contract_address'})     
-    @ApiQuery({name: 'to_address'}) 
-    @ApiQuery({name: 'amount'})   
-    async mintWlNft(@Query('contract_address') strContractAddress : string, @Query('to_address')strToAddr : string , @Query('amount')strAmt : string ) : Promise<string>{
-      try{        
-        Logger.debug("Transferring " + strContractAddress + " to => " + strToAddr);
-        return "";
-      }
-      catch (err)
-      {
-        Logger.debug(err);
-      }
-    }
-
 
 
 
